@@ -1,0 +1,10 @@
+{
+  "name": "Doctor-RealTime",
+  "version": "0.0.1",
+  "description": "Minimailist multiroom chat server",
+  "dependencies": {
+    "socket.io": "~2.0.4",
+    "mime": "^2.2.0",
+    "express": "^4.16.3"
+  }
+}
