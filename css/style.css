@@ -1,0 +1,346 @@
+@charset "utf-8";
+/* 样式重置 */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; }
+html{ color: #000; overflow-y: scroll; overflow: -moz-scrollbars-vertical;}
+body,button,input,select,textarea{ font: 12px / 1 "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+h1,h2,h3,h4,h5,h6{ font-size:100%;}
+small{ font-size: 12px;}
+ul,ol{ list-style: none;}
+a{ text-decoration: none;}
+a:hover{ text-decoration: none;}
+legend{ color: #000;}
+fieldset,img{ border: 0;}
+button,input,select,textarea{ font-size: 100%;}
+table{ border-collapse: collapse; border-spacing: 0;}
+img{ border: 0; -ms-interpolation-mode: bicubic;}
+textarea{ resize: vertical;}
+label,button{ cursor: pointer;}
+.clearfix:after{ content: '\20'; display: block; height: 0; clear: both;}
+.clearfix{ zoom: 1;}
+.clear{ clear: both; height: 0; line-height: 0; font-size: 0; visibility: hidden; overflow: hidden;}
+
+/* 公共样式 */
+body{ min-width: 1200px; background-color: #f4f6f8;}
+.pr{ position: relative; z-index: 1;}
+.nom{ margin: 0!important;}
+.container{ width: 1200px; margin: 0 auto; position: relative;}
+
+
+/* 顶部 */
+.head{ position: absolute; top: 0; left: 0; z-index: 10; width: 100%; padding-top: 25px;}
+.head .container{ height: 85px;}
+.logo{ float: left;}
+.head-login{ float: right; font-size: 16px; color: #666; padding-top: 10px;}
+.head-login a{ display: inline-block; height: 30px; line-height: 30px; color: #666; margin: 0 20px; vertical-align: middle;}
+.head-login a:hover{ color: #1a65a9;}
+.head-login a.face{ margin: 0; border-radius: 100%; width: 30px; height: 30px; overflow: hidden;}
+
+/* banner */
+.module_1{}
+.banner{ position: relative; z-index: 1; width: 100%; overflow: hidden;}
+.banner .flexslider{ position: relative; top: 0; left: 0; width: 100%; height: 533px;}
+.banner .slides a{ display: block; width: 100%; height: 533px; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;}
+
+/* 按科室找医生 */
+.module_2{ padding-top: 56px; background-color: #f1f5f6; padding-bottom: 60px;}
+.department{ margin-bottom: 70px;}
+.department .title{ width: 380px; height: 50px; text-align: center; line-height: 50px; font-size: 30px; color: #333; background: url(../images/title-bg.png) no-repeat 50% 0; margin: 0 auto;}
+.search-doctor{ padding-top: 27px; text-align: center; font-size: 0; padding-bottom: 40px;}
+.select{ display: inline-block; position: relative; z-index: 50; margin-right: 10px; vertical-align: middle;}
+.select .select-head{ width: 60px; height: 38px; line-height: 38px; font-size: 14px; color: #999; padding-left: 10px; padding-right: 30px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; background: #fff url(../images/icon-select.png) no-repeat 79px 50%; border: 1px solid #dee0e1; cursor: pointer;}
+.select .select-head.active{ color: #666;}
+.select .select-content{ position: absolute; top: 39px; left: 0; min-width: 102px; background-color: #fff; display: none;}
+.select .select-content li{ font-size: 14px; color: #666; height: 30px; line-height: 30px; padding: 0 10px; border: 1px solid #dee0e1; margin-bottom: -1px; cursor: pointer;}
+.search{ display: inline-block; width: 150px; height: 38px; background-color: #fff; border: 1px solid #dee0e1; vertical-align: middle;}
+.search .search-text{ width: 105px; padding: 0 5px; font-size: 14px; color: #666; height: 38px; line-height: 38px; vertical-align: middle; border: 0;}
+.search .search-btn{ width: 30px; height: 30px; background: url(../images/icon-search.png) no-repeat 50% 50%; vertical-align: middle; cursor: pointer; border: 0;}
+
+.department-slider{ width: 1200px; height: 360px; overflow: hidden; position: relative;}
+.department-wrapper{ height: 320px; overflow: hidden; padding-top: 10px;}
+.department-slider .slides{ width: 1220px;}
+.department-slider .slides li{ float: left; width: 225px; height: 125px; padding-top: 25px; margin-right: 19px; margin-bottom: 30px;}
+.department-slider .slides li a{ display: block; position: relative;}
+.department-slider .slides li .icon{ position: absolute; top: -25px; left: 50%; margin-left: -30px; width: 60px; height: 60px; border-radius: 60px; overflow: hidden; border: 2px solid #fff;}
+.department-slider .slides li .wrap{ background-color: #fff; border-radius: 5px; border-bottom: 5px solid #fff; height: 120px; padding: 0 25px;}
+.department-slider .slides li .wrap h2{ padding-top: 50px; height: 30px; line-height: 30px; text-align: center; font-size: 16px; color: #000; margin-bottom: 10px;}
+.department-slider .slides li .wrap p{ font-size: 12px; color: #999; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.department-slider .flex-control-nav{ bottom: 0;}
+.department-slider .slides li:hover a{ margin-top: -10px;}
+.department-slider .slides li:hover a .wrap{ border-color: #1a65a9;}
+
+/* 名医专家 */
+.specialist{ background-color: #fff; border-radius: 10px; padding: 20px 0;}
+.specialist .title{ padding-right: 50px; margin-bottom: 10px;}
+.specialist .title h2{ float: left; height: 25px; line-height: 24px; font-size: 24px; color: #000; border-left: 5px solid #1a65a9; padding-left: 20px;}
+.specialist .title a{ float: right; font-size: 14px; color: #ccc; line-height: 25px;}
+.specialist .title a:hover{ color: #1a65a9;}
+.specialist-wrapper li{ padding: 30px 40px 30px 25px; border-bottom: 1px solid #efefef; height: 120px;}
+.specialist-wrapper .face{ float: left; width: 120px; height: 120px; border-radius: 120px; overflow: hidden; margin-right: 18px;}
+.specialist-wrapper .info{ float: left; width: 830px;}
+.specialist-wrapper .info .one{ height: 30px; line-height: 30px; padding-bottom: 5px;}
+.specialist-wrapper .one h2{ display: inline-block; padding-right: 60px; font-size: 18px; color: #000; line-height: 30px; vertical-align: middle;}
+.specialist-wrapper .one span{ display: inline-block; height: 19px; line-height: 19px; font-size: 12px; color: #fff; text-indent: 7px; background-repeat: no-repeat; background-position: 0 0; margin-right: 9px;}
+.specialist-wrapper .one span.rz{ width: 60px; background-image: url(../images/icon-tag.png);}
+.specialist-wrapper .one span.tj{ width: 47px; background-image: url(../images/icon-tag2.png);}
+.specialist-wrapper .info .two{ height: 25px; line-height: 25px; padding-bottom: 4px;}
+.specialist-wrapper .two span{ font-size: 16px; color: #666; padding-right: 22px;}
+.specialist-wrapper .two a{ font-size: 14px; color: #1a65a9; padding-right: 8px;}
+.specialist-wrapper .three{ height: 25px; line-height: 25px; padding-bottom: 4px; color: #999; font-size: 14px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.specialist-wrapper .three strong{ color: #333;}
+.specialist-wrapper .four{ height: 25px; line-height: 25px; padding-bottom: 4px; color: #fd7b53; font-size: 14px;}
+.specialist-wrapper .btn{ float: right; padding-top: 38px;}
+.specialist-wrapper .btn a{ display: inline-block; width: 110px; height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #fd7b53; border-radius: 40px; border: 1px solid #fd7b53; margin-left: 25px;}
+.specialist-wrapper .btn a:hover{ background-color: #fd7b53; color: #fff;}
+
+/* 底部 版权 */
+.footer{ background-color: #404040; padding: 30px 0; font-size: 14px; line-height: 30px;}
+.footer .links{ float: left;}
+.footer .links a{ color: #999; margin-right: 15px;}
+.footer .links a:hover{ color: #fff;}
+.footer .copyright{ float: right; color: #999;}
+
+
+    /* 碎屏滚动侧边栏 */
+.goTop{ position: fixed; bottom: 150px; left: 50%; z-index: 100; margin-left: 650px; width: 72px; display: none;}
+.goTop a{ display: block; height: 35px; line-height: 20px; text-align: center; padding-top: 37px; background: #15c288 url(../images/icon-goTop.png) no-repeat 50% 18px; font-size: 12px; color: #fff; border-radius: 5px;}
+
+
+/* 分站首页 */
+.sub-banner{ width: 100%; height: 300px; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;}
+.module_2_sub{ padding-top: 0;}
+.search-wrapper{ padding: 27px 0;}
+.search-content{ float: left;}
+.search-content .title{ float: left; width: 85px; font-size: 18px; color: #333; line-height: 40px;}
+.search-content .search-doctor{ float: left; padding: 0;}
+.router{ float: right; font-size: 14px; line-height: 40px; color: #666;}
+.router a{ color: #666; margin: 0 8px;}
+.router span{ color: #3366cc; padding-left: 8px;}
+.pagination{ padding-top: 45px; text-align: center; font-size: 0;}
+.pagination li{ display: inline-block; border: 1px solid #ddd; margin-right: 5px;}
+.pagination li a, .pagination li span{ display: inline-block; width: 34px; height: 32px; line-height: 32px; text-align: center; color: #333; font-size: 14px;}
+.pagination li.active span, .pagination li a:hover{ background-color: #fe5f56; color: #fff;}
+
+
+/* 登录注册 */
+.white-head{ background-color: #fff; padding-top: 15px; padding-bottom: 10px; height: 55px;}
+.white-head .container{ height: 60px;}
+.white-head .logo img{ width: 120px;}
+.login{ position: relative;}
+.login .bg{ width: 100%; min-height: 725px; display: block;}
+.login .wrapper{ position: absolute; top: 50%; left: 50%; width: 450px; height: 410px; margin-left: -225px; margin-top: -205px; border-radius: 10px; overflow: hidden;}
+.login .title{ height: 120px; background-color: #4e90ce; text-align: center; color: #fff;}
+.login .title h2{ padding-top: 30px; font-size: 24px; line-height: 36px;}
+.login .title p{ font-size: 14px; line-height: 26px;}
+.form-wrap{ padding: 25px; height: 240px; background-color: #fff;}
+.form-wrap p{}
+.form-wrap p input{ display: inline-block; width: 100%; padding-top: 18px; line-height: 40px; font-size: 16px; color: #333; border: 0; border-bottom: 1px solid #e9e9e9; background: none;}
+.form-wrap p.forgetPwd{ padding-top: 25px; text-align: right; line-height: 25px; padding-bottom: 5px;}
+.form-wrap p.forgetPwd a{ font-size: 14px; color: #666;}
+.form-wrap .btn-login{ display: inline-block; width: 100%; height: 52px; line-height: 52px; border: 0; background-color: #2274c2; font-size: 22px; color: #fff; font-weight: bold; border-radius: 5px;}
+.register .wrapper{ height: 430px; margin-top: -215px; border-radius: 0;}
+.register .title{ height: 90px; background-color: #fff;}
+.register .title h2{ padding-top: 0; line-height: 90px; color: #4e90ce;}
+.register .form-wrap{ padding-top: 0; padding-bottom: 0; height: 340px;}
+.register .form-wrap div{ margin-bottom: 20px;}
+.register .form-wrap p{ display: inline-block; width: 100%; border: 1px solid #dadada; border-radius: 5px; overflow: hidden;}
+.register .form-wrap p label{ display: inline-block; width: 100px; height: 40px; line-height: 40px; font-size: 14px; color: #333; text-indent: 13px; vertical-align: top; cursor: default;}
+.register .form-wrap p input{ width: 300px; border: 0; padding: 0; height: 40px; line-height: 40px; vertical-align: top;}
+
+.register .form-wrap p.yzm{ width: 258px; float: left;}
+.register .form-wrap p.yzm input{ width: 155px;}
+.register .form-wrap .btn-yzm{ float: right; width: 130px; height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #fff; background-color: #fd7b53; border-radius: 5px; cursor: pointer;}
+
+
+/*  诊断和处方*/
+.sub-page{ margin-top: 170px; margin-bottom: 77px;}
+.sub-page .sub-page-wrap{ width: 1128px; margin: 0 auto 35px; background-color: #fff; border-radius: 10px; overflow: hidden; padding-bottom: 50px;}
+.chufang .title{ padding-top: 40px; padding-bottom: 10px; border-bottom: 1px solid #f2f2f2; text-align: center; margin-bottom: 35px;}
+.chufang .title h2{ font-size: 24px; color: #333; line-height: 40px;}
+.chufang .title p{ font-size: 16px; color: #cc0000; line-height: 26px;}
+.chufang .wrap{ padding: 25px 45px 0;}
+.chufang .wrap label{ display: block; height: 45px; line-height: 45px; font-size: 20px; color: #333; margin-bottom: 5px; font-weight: bold;}
+.edit-textarea{ display: block; padding: 10px; border: 1px solid #e5e5e5; width: 100%; height: 95px; line-height: 24px; font-size: 14px; color: #333; box-sizing: border-box;}
+.btn-blue{ display: block; width: 225px; height: 60px; font-size: 24px; color: #fff; text-align: center; font-weight: bold; background-color: #2575ba; margin: 60px auto 0; border: 0; border-radius: 60px;}
+
+/* 患者个人中心 */
+.hz-mcenter{ background: url(../images/banner-3.jpg) no-repeat 50% 0; background-size: cover; padding-top: 132px; margin-bottom: 60px;}
+.hz-mcenter .head-wrap{ margin-bottom: 44px; text-align: center;}
+.hz-mcenter .head-wrap .face{ width: 90px; height: 90px; margin: 0 auto; border-radius: 100%; border: 4px solid #fff; overflow: hidden;}
+.hz-mcenter .head-wrap .face img{ display: block; width: 100%; height: 100%;}
+.hz-mcenter .head-wrap .name{ font-size: 20px; color: #333; line-height: 40px;}
+.hz-mcenter .head-wrap .info{ font-size: 14px; color: #666; line-height: 30px; margin-bottom: 43px;}
+.hz-mcenter .head-wrap .info span{ padding: 0 20px;}
+.hz-mcenter .head-wrap .btn a{ display: inline-block; margin: 0 5px; width: 136px; height: 44px; line-height: 44px; text-align: center; font-size: 18px; color: #fff; background-color: #666; border-radius: 44px;}
+.hz-mcenter .head-wrap .btn a:hover, .hz-mcenter .head-wrap .btn a.active{ background-color: #2575ba;}
+.tab-content{ background-color: #fff; border-radius: 10px; overflow: hidden;}
+.tab-content .tab-title{ border-bottom: 1px solid #e6e5e5; padding: 0 40px;}
+.tab-content .tab-title a{ display: inline-block; height: 66px; line-height: 66px; padding: 0 8px; font-size: 18px; color: #999; margin-right: 50px; border-top: 3px solid transparent; font-weight: bold;}
+.tab-content .tab-title a:hover, .tab-content .tab-title a.active{ color: #2575ba; border-color: #2575ba;}
+.tab-content .tab-wrapper{ padding-bottom: 100px;}
+.tab-content .tab-wrapper .info{ width: 600px;}
+.specialist-wrapper .btn a.gray{ color: #999; border-color: #dcdcdc;}
+.specialist-wrapper .btn a.gray:hover{ color: #fff; border-color: #2575ba; background-color: #2575ba;}
+.specialist-wrapper .btn a.blue{ color: #2575ba; border-color: #2575ba;}
+.specialist-wrapper .btn a.blue:hover{ color: #fff; background-color: #2575ba;}
+.specialist-wrapper .btn a.green{ color: #33cc99; border-color: #33cc99;}
+.specialist-wrapper .btn a.green:hover{ color: #fff; background-color: #33cc99;}
+
+.tab-content .tab-title-2{ padding: 18px 0; overflow: hidden;}
+.tab-content .tab-title-2 h2{ float: left; font-size: 22px; line-height: 40px; color: #2575ba; border-left: 5px solid #2575ba; padding-left: 22px;}
+.mcenter-wrap{ padding-left: 110px; padding-right: 120px; padding-top: 40px;}
+.mcenter-wrap .wrap{ padding-bottom: 25px; overflow: hidden; font-size: 18px;}
+.mcenter-wrap .wrap label{ display: inline-block; width: 110px; text-align: center; font-size: 18px; color: #333; vertical-align: middle;}
+.mcenter-wrap .wrap .inp-box{ display: inline-block; width: 210px; vertical-align: middle;}
+.mcenter-wrap .wrap .inp{ width: 190px; height: 32px; line-height: 32px; padding: 0 5px; font-size: 16px; color: #333; border: 1px solid #e5e5e5; background-color: #fff;}
+.mcenter-wrap .wrap .upload-box{ display: inline-block; height: 72px; vertical-align: middle;}
+.mcenter-wrap .wrap .upload-box img{ display: block; width: 72px; height: 72px;}
+.mcenter-wrap .wrap .btn-face-upload{ display: inline-block; height: 72px; width: 72px; vertical-align: middle; position: relative;}
+.mcenter-wrap .wrap .btn-face-upload input{ position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; background: none; border: 0;}
+.mcenter-wrap .wrap .btn-face-upload span{display: inline-block; height: 100%; width: 100%; background: #f4f6f8 url(../images/icon-plus.png) no-repeat 50% 50%; cursor: pointer;}
+.mcenter-wrap .wrap .inp-radio{ width: 16px; height: 16px; margin: 0; vertical-align: middle;}
+.mcenter-wrap .wrap2 label{ width: 120px;}
+.mcenter-wrap .wrap2 .inp-box{ width: 360px;}
+.mcenter-wrap .wrap2 .inp{ width: 346px;}
+
+.change-pwd{ padding-bottom: 140px;}
+.change-pwd .mcenter-wrap{ padding-bottom: 0;}
+.change-pwd .wrap{ position: relative; width: 350px; margin: 0 auto;}
+.change-pwd .wrap .inp{ width: 318px; height: 45px; line-height: 45px; padding: 0 15px;}
+.change-pwd .wrap .getCode{ position: absolute; right: 1px; top: 1px; height: 45px; line-height: 45px; padding: 0 12px; font-size: 18px; color: #333; background-color: #f4f6f8;}
+.change-pwd .btn-blue{ margin-top: 30px;}
+
+.tab-content .tab-title-2 a{ float: right; height: 24px; line-height: 40px; padding: 0; border: 0; font-size: 18px; color: #2575ba; font-weight: normal; margin-right: 25px;}
+.tab-content .tab-title-2 a:hover{ font-weight: bold;}
+.refund-list{ padding: 40px 45px;}
+.refund-wrap{ width: 100%; text-align: center;}
+.refund-list tr{ border-bottom: 1px solid #efefef;}
+.refund-list td{ padding: 16px 0; line-height: 24px; font-size: 16px; color: #666;}
+.refund-list thead{ background-color: #666;}
+.refund-list thead tr{ border: 0; padding: 0;}
+.refund-list thead th{ color: #fff; height: 40px; line-height: 40px; font-size: 18px;}
+.refund-list td.red{ color: #cc0000;}
+
+.change-pwd .wrap .sel{ width: 350px;}
+
+
+/*健康档案盒病情描述*/
+.describe{ padding: 0 0 50px!important;}
+.describe-title{ padding-top: 50px; padding-bottom: 20px; height: 50px; line-height: 50px; font-size: 24px; color: #333; text-align: center; border-bottom: 1px solid #f2f2f2; margin-bottom: 20px;}
+.describe-wrap{ padding: 30px 46px 0;}
+.describe-sub-title{ border-bottom: 1px solid #a3c1dd; margin-bottom: 40px;}
+.describe-sub-title span{ display: inline-block; margin-bottom: -1px; border-bottom: 1px solid #1a65a9; height: 45px; line-height: 45px; padding-bottom: 8px; font-size: 20px; color: #333;}
+.mcenter-wrap .wrap span{ display: inline-block; font-size: 18px; color: #333; vertical-align: middle;}
+.mcenter-wrap .wrap span em{ font-style: normal; color: #999;}
+.mcenter-wrap .wrap3{ line-height: 26px;}
+
+
+/* 医管个人中心 */
+.yg-mcenter{}
+.yg-mcenter .head-wrap .btn a:hover, .yg-mcenter .head-wrap .btn a.active{ background-color: #fd7b53;}
+.yg-mcenter .tab-content .tab-title a:hover, .yg-mcenter .tab-content .tab-title a.active{ color: #fd7b53; border-color: #fd7b53;}
+.specialist-wrapper .btn a.w{ width: 140px;}
+.specialist-wrapper .btn a.red{ border-color: #e60012; color: #e60012;}
+.specialist-wrapper .btn a.red:hover{ background-color: #e60012; color: #fff;}
+.specialist-wrapper .btn a.disabled{ border-color: #d2d2d2; background-color: #d2d2d2; color: #fff;}
+.specialist-wrapper .btn a.disabled:hover{ border-color: #d2d2d2; background-color: #d2d2d2; color: #fff;}
+.yg-mcenter .tab-content .tab-title-2 h2{ border-color: #fd7b53; color: #333;}
+.tab-content .tab-title-2 .state{ float: right; height: 24px; line-height: 24px; padding: 0; border: 0; font-size: 16px; color: #cc0000; font-weight: normal; margin-right: 50px;}
+.yg-mcenter .chufang{ width: 940px; margin: 0 auto;}
+.btn-green{ background-color: #fd7b53;}
+.tab-content .tab-title-2 a.tx{ width: 105px; height: 40px; line-height: 40px; text-align: center; border-radius: 40px; font-size: 16px; color: #fff; background-color: #fd7b53;}
+.tab-content .tab-title-2 a.tx:hover{ color: #fff;}
+
+.yg-tx{ width: 350px; margin: 0 auto 40px; text-align: center;}
+.yg-tx .tit{ font-size: 16px; color: #333; padding-bottom: 25px; line-height: 24px;}
+.yg-tx .wrap{ border: 1px solid #ccc; margin-bottom: 28px;}
+.yg-tx .wrap label{ display: inline-block; height: 52px; line-height: 52px; vertical-align: middle; padding-left: 22px; width: 45px; font-size: 24px; color: #999; cursor: default;}
+.yg-tx .wrap .inp{ display: inline-block; width: 275px; height: 52px; line-height: 52px; font-size: 16px; color: #333; border: 0; vertical-align: middle;}
+.yg-tx .btn-tx{ display: inline-block; width: 105px; height: 40px; line-height: 40px; text-align: center; border-radius: 40px; font-size: 16px; color: #fff; background-color: #fd7b53; border: 0;}
+
+
+/* 医生详情 */
+.ys-detail{ background: none; padding-top: 0;}
+.ys-detail .head-wrap{ height: 340px; padding-top: 115px; background: url(../images/banner-4.jpg) no-repeat 50% 0; background-size: cover;}
+.ys-detail .face-wrap{ position: relative; margin-bottom: 15px;}
+.ys-detail .face-wrap .tag{ position: absolute; bottom: -8px; left: 50%; margin-left: -30px; display: block; width: 60px; height: 19px; line-height: 19px; font-size: 12px; color: #fff; text-indent: 7px; background: url(../images/icon-tag.png) no-repeat 0 0; text-align: left;}
+.ys-detail .head-wrap .name{ font-size: 24px; color: #fff; line-height: 50px; padding-bottom: 10px;}
+.ys-detail .head-wrap .info{ font-size: 16px; color: #fff; margin-bottom: 25px;}
+.ys-detail .head-wrap .btn a{ width: 162px; height: 44px; line-height: 44px; font-size: 18px; color: #fff; background-color: #fd7b53; border-radius: 44px;}
+.ys-detail .head-wrap .btn a:hover{ background-color: #fd7b53;}
+.ys-detail .head-wrap .cost{ padding-top: 10px; font-size: 12px; color: #fff; line-height: 22px;}
+.ys-detail-wrap{ background-color: #fff; border-radius: 10px;}
+.ys-detail-wrap .title{ padding: 25px 35px 20px 0; height: 24px; line-height: 24px; border-bottom: 1px solid #f2f2f2;}
+.ys-detail-wrap .title h2{ float: left; padding-left: 15px; border-left: 5px solid #1a65a9; font-size: 22px; color: #333; font-weight: normal;}
+.ys-detail-wrap .title a{ float: right; font-size: 14px; color: #999;}
+.ys-detail-wrap .content{ padding: 28px;}
+.ys-detail-wrap .content p{ font-size: 16px; color: #666; line-height: 30px;}
+.comments{}
+.comments label{ display: inline-block; width: 80px; font-size: 14px; color: #333; line-height: 22px; vertical-align: top; cursor: default;}
+.comments .textarea-wrap{ display: inline-block; width: 1060px; vertical-align: top;}
+.comments-btn{ padding-left: 80px; padding-top: 20px;}
+.comments-btn .btn{ display: inline-block; width: 90px; height: 35px; line-height: 35px; text-align: center; border: 0; background-color: #34c692; border-radius: 5px; font-size: 14px; color: #fff;}
+.comments-lists{ padding-bottom: 30px;}
+.comments-lists .item{ overflow: hidden; padding: 35px 0; border-bottom: 1px dashed #e5e5e5;}
+.comments-lists .face{ float: left; width: 80px; height: 80px; border-radius: 100%; overflow: hidden;}
+.comments-lists .face img{ display: block; width: 100%; height: 100%;}
+.comments-lists .info{ float: right; width: 1040px;}
+.comments-lists .info .tit{ overflow: hidden; line-height: 28px;}
+.comments-lists .info .tit h2{ float: left; font-size: 18px;}
+.comments-lists .info .tit h2 a{ color: #1a65a9;}
+.comments-lists .info .tit .time{ float: right; font-size: 12px; color: #999;}
+.comments-lists .info .con{ font-size: 14px; color: #333; line-height: 24px; padding-top: 3px;}
+
+/* 在线聊天 */
+.chat-body{ background-color: #d8d8d8;}
+.chat{ margin-top: 100px;}
+.chat-wrapper{ width: 800px; margin: 0 auto; border: 1px solid #fff;}
+.chat-wrapper .header{ padding: 10px 15px; background-color: #2274c2; overflow: hidden;}
+.chat-wrapper .user-info{ float: left;}
+.chat-wrapper .header .face{ float: left; width: 50px; height: 50px; overflow: hidden; border-radius: 100%; margin-right: 15px;}
+.chat-wrapper .header .face img{ display: block; width: 100%; height: 100%;}
+.chat-wrapper .header .info-m{ float: left;}
+.chat-wrapper .header .info-m .name{ padding-top: 3px; font-size: 18px; color: #fff; line-height: 24px;}
+.chat-wrapper .header .info-m .state{ font-size: 14px; color: #99ccff; line-height: 20px;}
+.chat-wrapper .header .user-btn{ float: right; padding-top: 14px;}
+.chat-wrapper .header .user-btn .btn{ display: inline-block; padding: 0 17px; height: 28px; line-height: 28px; font-size: 18px; color: #fff; border-radius: 2px; border: 1px solid #91bae1; margin-right: 10px; vertical-align: middle;}
+.chat-wrapper .header .user-btn .btn.disabled{ opacity: 0.5; cursor: default;}
+.chat-wrapper .header .user-btn span{ display: inline-block; vertical-align: middle; border-left: 3px solid #91bae1; height: 22px; width: 15px;}
+.chat-wrapper .header .user-btn .quit{ display: inline-block; padding-left: 24px; font-size: 16px; color: #fff; line-height: 24px; background: url(../images/icon-arrow.png) no-repeat 0 50%; vertical-align: middle;}
+.chat-content{ height: 345px; overflow-y: auto; padding: 20px; background-color: #edeef0; border-bottom: 1px solid #dcddde;}
+.chat-text{ margin-bottom: 25px; overflow: hidden;}
+.chat-text .service{ float: left;}
+.chat-text .customer{ float: right;}
+.chat-text .face{ float: left; width: 47px; height: 47px; border: 1px solid #fff; overflow: hidden; margin-right: 30px;}
+.chat-text .face img{ display: block; width: 100%; height: 100%;}
+.chat-text .text-wrapper{ position: relative; float: left;}
+.chat-text .text-wrapper .arrow{ display: block; width: 9px; height: 15px; position: absolute; top: 12px; left: -8px; background: url(../images/icon-arrow-l.png) no-repeat 0 0;}
+.chat-text .text-wrapper .text-content{ padding: 15px 20px; border: 1px solid #dcddde; border-radius: 5px; background-color: #fff;}
+.chat-text .text-wrapper .text-content h3{ font-size: 16px; color: #333; line-height: 30px;}
+.chat-text .text-wrapper .text-content p{ font-size: 14px; color: #333; line-height: 24px;}
+.chat-text .text-wrapper .text-content p.blue{ color: #2274c2;}
+.chat-text .customer .face{ float: right; margin-right: 0; margin-left: 30px;}
+.chat-text .customer .text-wrapper{ float: right;}
+.chat-text .customer .text-wrapper .arrow{ left: auto; right: -8px; background-image: url(../images/icon-arrow-r.png);}
+
+.chat-tool{ padding: 7px; background-color: #fafafa; height: 21px;}
+.chat-tool .upload-pic{ position: relative; cursor: pointer; display: inline-block;}
+.chat-tool .upload-pic .icon{ display: inline-block; width: 21px; height: 21px; background: url(../images/icon-img.png) no-repeat 0 0; vertical-align: middle; margin-right: 7px; cursor: pointer;}
+.chat-tool .upload-pic .text{ font-size: 14px; line-height: 21px; color: #2274c2; vertical-align: middle; text-decoration: underline; font-style: normal; cursor: pointer;}
+.chat-tool .upload-pic input{ display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; filter: alpha(opacity=0); cursor: pointer; overflow: hidden; border: 0;}
+.edit-inp-area{ border: 2px solid #fafafa; border-top: 0; background-color: #fff; overflow: hidden;}
+.edit-inp-area .edit-ipt{float: left; width: 670px; height: 95px; padding: 10px 5px 10px 10px; font-size: 16px; color: #333; line-height: 26px; border: 0;}
+.edit-inp-area .btn-send{ float: right; padding-top: 60px; padding-right: 15px;}
+.edit-inp-area .edit-btn{ width: 85px; height: 38px; text-align: center; line-height: 38px; font-size: 18px; color: #fff; font-weight: bold; background-color: #2274c2; border: 0;}
+
+.yg-mcenter .mcenter-cont{ width: 680px; margin: 0 auto;}
+.yg-mcenter .mcenter-cont .wrap label{ width: 150px; text-align: right; padding-right: 10px; vertical-align: top; line-height: 34px;}
+.yg-mcenter .mcenter-cont .wrap .inp-box{ line-height: 34px;}
+.yg-mcenter .mcenter-cont .wrap .inp{ width: 470px; vertical-align: top;}
+.yg-mcenter .mcenter-cont .wrap textarea.inp{ width: 470px; height: 90px; line-height: 24px;}
+.yg-mcenter .mcenter-cont .btn-blue{ margin-top: 30px; margin-bottom: 20px;}
+
+
+
+
+
+
