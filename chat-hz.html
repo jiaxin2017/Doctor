@@ -11,6 +11,7 @@
     <meta name="description" content="">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="client/chat-client.js"></script>
+    <script type="text/javascript" src="client/uploadImg.js"></script>
     <link href="./css/flexslider.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
@@ -73,7 +74,7 @@
         <div class="chat-tool">
             <div class="upload-pic" title="上传图片">
                 <span class="icon"></span><em class="text">上传图片</em>
-                <input type="file" accept="image/*" />
+                <input type="file" name="myUpImg" onchange="uploadImgHandler()" accept="image/*" />
             </div>
         </div>
         <div class="edit-inp-area">

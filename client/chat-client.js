@@ -17,6 +17,27 @@ if ('WebSocket' in window) {
 websocket.onopen = function(e) {
 	
 	infos = GetRequest();
+	
+	var formData = new FormData();
+	formData.append('oid', infos.oid);
+	
+	$.ajax({
+		url: HOST+'/index.php?r=home/default/oinfo',
+		type: 'POST',
+		data: formData,
+		contentType: false,
+		processData: false,
+		cache: false,
+		success: function(response) {
+			console.log(typeof response);
+			console.log('订单详情=>',response);
+		},
+		error: function (jqXHR) {
+			console.log(JSON.stringify(jqXHR));
+		}
+	});
+	
+	
 	//获取信息
 	$.post("data/infoData.json",{oid:infos.oid},function(response){
 		console.log(response);
@@ -63,6 +84,26 @@ function sendTextHandler(){
 		websocket.send(JSON.stringify(thread));
 	}
 }
+
+// 响应回车发送
+document.onkeydown = function(e){
+	var ev = document.all ? window.event : e;
+	if(ev.keyCode==13) {
+		
+		sendTextHandler();
+		
+	}
+}
+
+
+//发送图片
+function sendImgHandler(imgs){
+	thread.type = "pic";
+	thread.content = imgs;
+	console.log('thread=>',thread);
+	websocket.send(JSON.stringify(thread));
+}
+
 
 
 //接收到消息的回调方法
@@ -130,7 +171,9 @@ function showMessage(obj){
 //添加消息数据
 function createChatNode(obj,isme){
 	var el = '';
+	
 	el +='<div class="chat-text">';
+	
 	if (isme) {
 		el +='	<div class="chat-area customer">';
 	}else{
@@ -138,10 +181,16 @@ function createChatNode(obj,isme){
 	}
 	el +='		<div class="face"><img src="'+obj.headImg+'" /></div>';
 	el +='		<div class="text-wrapper">';
-	el +='			<div class="arrow"></div>';
-	el +='			<div class="text-content">';
-	el +='				<p>'+obj.content+'</p>';
-	el +='			</div>';
+	if(obj.type == 'pic'){
+		el +='			<div class="text-content-img">';
+		el +='				<img src="'+obj.content+'">';
+		el +='			</div>';
+	}else{
+		el +='			<div class="arrow"></div>';
+		el +='			<div class="text-content">';
+		el +='				<p>'+obj.content+'</p>';
+		el +='			</div>';
+	}
 	el +='		</div>';
 	el +='	</div>';
 	el +='</div>';
@@ -236,3 +285,6 @@ function closeWindow()
 	window.open(' ', '_self', ' ');
 	window.close();
 }
+
+
+

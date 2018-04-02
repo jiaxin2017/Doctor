@@ -17,7 +17,7 @@ var server = ws.createServer(function(conn) {
 	var thread;
 	conn.on("text", function(str) {
 		thread = JSON.parse(str);
-		console.log('conn/text => ',user);
+		console.log('conn/text => ',thread);
 		connections.push(thread);
 		
 		// 当发起单聊的人超过1个人的时候，就要确定单聊的路线
