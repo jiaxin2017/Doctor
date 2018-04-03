@@ -17,20 +17,23 @@ var server = ws.createServer(function(conn) {
 	var thread;
 	conn.on("text", function(str) {
 		thread = JSON.parse(str);
-		console.log('conn/text => ',thread);
+		//console.log('conn/text => ',thread);
 		connections.push(thread);
+		
+		//console.log('connections=>',connections);
 		
 		// 当发起单聊的人超过1个人的时候，就要确定单聊的路线
 		if (connections.length > 1) {
 			for (var i = 0; i < connections.length; i++) {
 				for (var j = i + 1; j < connections.length; j++) {
 					// 这里是判断单聊的路线，toname是要发送的人和要接受的人是否一样
-					if (connections[i].receiveName == connections[j].sendName &&
-						connections[j].receiveName == connections[i].sendName) {
+					if (connections[i].receiveID == connections[j].sendID &&
+						connections[j].receiveID == connections[i].sendID) {
 						signallines.push(connections[j].receiveName);
 						signallines.push(connections[j].sendName);
 						
 					}
+					
 				}
 			}
 		}
@@ -38,8 +41,8 @@ var server = ws.createServer(function(conn) {
 	});
 	
 	conn.on("close", function(code, reason) {
-		console.log("code closed", code);
-		console.log("reason closed", reason)
+		//console.log("code closed", code);
+		//console.log("reason closed", reason)
 		clientCount = 0;
 	});
 	
@@ -51,7 +54,7 @@ var server = ws.createServer(function(conn) {
 }).listen(PORT);
 
 function broadcast(str) {
-	console.log('str', str);
+	//console.log('str', str);
 	// 取到server下面的所有连接
 	server.connections.forEach(function(connection) {
 		connection.sendText(str);

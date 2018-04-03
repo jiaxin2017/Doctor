@@ -16,8 +16,9 @@ if ('WebSocket' in window) {
 // 连接成功建立的回调方法
 websocket.onopen = function(e) {
 	
-	infos = GetRequest();
+	infos = GetRequest();//获取地址栏值
 	
+	//获取信息
 	var formData = new FormData();
 	formData.append('oid', infos.oid);
 	
@@ -29,8 +30,13 @@ websocket.onopen = function(e) {
 		processData: false,
 		cache: false,
 		success: function(response) {
-			console.log(typeof response);
-			console.log('订单详情=>',response);
+			var rs = JSON.parse(response);
+			//console.log(typeof rs);
+			//console.log('订单详情=>',rs);
+			if(rs.status == 'SUCCESS'){
+				interfaceData = rs.data;
+				showOinfo();
+			}
 		},
 		error: function (jqXHR) {
 			console.log(JSON.stringify(jqXHR));
@@ -38,41 +44,44 @@ websocket.onopen = function(e) {
 	});
 	
 	
-	//获取信息
-	$.post("data/infoData.json",{oid:infos.oid},function(response){
-		console.log(response);
-		if(response.status == 'SUCCESS'){
-			interfaceData = response.data;
-			thread.type = 'enter';
-			//判断是会员还是医生
-			if(infos.types == "1"){
-				thread.sendName = interfaceData.uname;
-				thread.receiveName = interfaceData.dname;
-				thread.headImg = interfaceData.uheadimg;
-			}else{
-				thread.sendName = interfaceData.dname;
-				thread.receiveName = interfaceData.uname;
-				thread.headImg = interfaceData.dheadimg;
-			}
-			
-			//添加用户
-			showUsers();
-			
-			//加入健康档案
-			showArchive(interfaceData);
-			
-			//响应按钮操作
-			btnHandler();
-			
-			//发起对话
-			websocket.send(JSON.stringify(thread));
-		}
-		
-	});
-	
-	
-	
 };
+
+//获取会员和医生信息
+function showOinfo(){
+	thread.type = 'enter';
+	//判断是会员还是医生
+	if(infos.types == "1"){
+		thread.oid = interfaceData.oid;
+		thread.sendID = interfaceData.uid;
+		thread.receiveID = interfaceData.did;
+		thread.sendName = interfaceData.uname;
+		thread.receiveName = interfaceData.dname;
+		thread.headImg = interfaceData.uheadimg;
+		thread.types = infos.types;
+	}else{
+		thread.oid = interfaceData.oid;
+		thread.receiveID = interfaceData.uid;
+		thread.sendID = interfaceData.did;
+		thread.sendName = interfaceData.dname;
+		thread.receiveName = interfaceData.uname;
+		thread.headImg = interfaceData.dheadimg;
+		thread.types = infos.types;
+	}
+	
+	//console.log('thread=>',thread)
+	
+	//添加用户
+	showUsers();
+	
+	//加入健康档案
+	showArchive(interfaceData);
+	
+	//响应按钮操作
+	btnHandler();
+	
+	//发起对话
+	websocket.send(JSON.stringify(thread));
+}
 
 // 发送消息
 function sendTextHandler(){
@@ -81,6 +90,7 @@ function sendTextHandler(){
 	if (txt) {
 		thread.type = "message";
 		thread.content = txt;
+		savechat();
 		websocket.send(JSON.stringify(thread));
 	}
 }
@@ -100,7 +110,8 @@ document.onkeydown = function(e){
 function sendImgHandler(imgs){
 	thread.type = "pic";
 	thread.content = imgs;
-	console.log('thread=>',thread);
+	//console.log('thread=>',thread);
+	savechat();
 	websocket.send(JSON.stringify(thread));
 }
 
@@ -179,7 +190,7 @@ function createChatNode(obj,isme){
 	}else{
 		el +='	<div class="chat-area service">';
 	}
-	el +='		<div class="face"><img src="'+obj.headImg+'" /></div>';
+	el +='		<div class="face"><img src="'+HOST+obj.headImg+'" /></div>';
 	el +='		<div class="text-wrapper">';
 	if(obj.type == 'pic'){
 		el +='			<div class="text-content-img">';
@@ -208,7 +219,7 @@ function showArchive(obj){
 	}else{
 		el +='	<div class="chat-area service">';
 	}
-	el +='		<div class="face"><img src="'+obj.uheadimg+'" /></div>';
+	el +='		<div class="face"><img src="'+HOST+obj.uheadimg+'" /></div>';
 	el +='		<div class="text-wrapper">';
 	el +='			<div class="arrow"></div>';
 	el +='			<div class="text-content">';
@@ -260,7 +271,7 @@ function showUsers(){
 	$('.info-m').empty();
 	$('.info-m').append(eles);
 	
-	$('.face').append('<img src="'+thread.headImg+'">');
+	$('.face').append('<img src="'+HOST+thread.headImg+'">');
 }
 
 //响应按钮操作
@@ -286,5 +297,49 @@ function closeWindow()
 	window.close();
 }
 
+
+function savechat(){
+	console.log('thread==>',thread);
+	
+	var formData = new FormData();
+	formData.append('oid', thread.oid);
+	formData.append('types', thread.types);
+	formData.append('sendID', thread.sendID);
+	formData.append('sendName', thread.sendName);
+	formData.append('receiveID', thread.receiveID);
+	formData.append('receiveName', thread.receiveName);
+	formData.append('content', thread.content);
+	formData.append('ptime', new Date().getTime());
+	
+/*	var i = formData.entries();
+	console.log('oid=>',i.next().value);
+	console.log('types=>',i.next().value);
+	console.log('sendID=>',i.next().value);
+	console.log('sendName=>',i.next().value);
+	console.log('receiveID=>',i.next().value);
+	console.log('receiveName=>',i.next().value);
+	console.log('content=>',i.next().value);
+	console.log('ptime=>',i.next().value);*/
+	
+	$.ajax({
+		url: HOST+'/index.php?r=home/default/savechat',
+		type: 'POST',
+		data: formData,
+		contentType: false,
+		processData: false,
+		cache: false,
+		success: function(response) {
+			//var rs = JSON.parse(response);
+			console.log(typeof response);
+			console.log('存储对话=>',response);
+			if(response.status == 'SUCCESS'){
+				console.log('存储成功')
+			}
+		},
+		error: function (jqXHR) {
+			console.log(JSON.stringify(jqXHR));
+		}
+	});
+}
 
 
