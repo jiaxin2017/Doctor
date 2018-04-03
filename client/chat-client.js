@@ -299,7 +299,7 @@ function closeWindow()
 
 
 function savechat(){
-	console.log('thread==>',thread);
+	//console.log('thread==>',thread);
 	
 	var formData = new FormData();
 	formData.append('oid', thread.oid);
@@ -329,10 +329,8 @@ function savechat(){
 		processData: false,
 		cache: false,
 		success: function(response) {
-			//var rs = JSON.parse(response);
-			console.log(typeof response);
-			console.log('存储对话=>',response);
-			if(response.status == 'SUCCESS'){
+			var rs = JSON.parse(response);
+			if(rs.status == 'SUCCESS'){
 				console.log('存储成功')
 			}
 		},

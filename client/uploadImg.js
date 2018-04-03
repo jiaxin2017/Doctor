@@ -19,7 +19,7 @@ function uploadImgHandler(){
 		processData: false,
 		cache: false,
 		success: function(response) {
-			console.log(typeof response);
+			//console.log(typeof response);
 			var arrys = JSON.parse(response);
 			if(arrys.status == 'SUCCESS'){
 				
