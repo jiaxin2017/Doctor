@@ -208,6 +208,8 @@ function createChatNode(obj,isme){
 	
 	$('.chat-content').append(el);
 	
+	scrollToBottom();
+	
 }
 
 //加入健康档案
@@ -338,6 +340,13 @@ function savechat(){
 			console.log(JSON.stringify(jqXHR));
 		}
 	});
+}
+
+//聊天窗口自动滚到底
+function scrollToBottom() {
+	var div = document.getElementById('msg-container');
+	div.scrollTop = div.scrollHeight;
+	
 }
 
 

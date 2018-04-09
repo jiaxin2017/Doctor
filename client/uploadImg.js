@@ -31,3 +31,17 @@ function uploadImgHandler(){
 		}
 	});
 }
+
+
+$(function(){
+	document.onkeydown = function (e) {
+		var ev = window.event || e;
+		var code = ev.keyCode || ev.which;
+		if (code == 116) {
+			ev.keyCode ? ev.keyCode = 0 : ev.which = 0;
+			cancelBubble = true;
+			return false;
+		}
+	} //禁止f5刷新
+	document.oncontextmenu=function(){return false};//禁止右键刷新
+})
